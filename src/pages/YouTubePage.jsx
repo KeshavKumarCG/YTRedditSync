@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import FeedCard from '../Components/FeedCard';
 import Pagination from '../Components/Pagination';
+import youtubeLogo from "../Images/youtube-logo.jpg";
 
 export default function YouTubePage() {
   const [items, setItems] = useState([]);
@@ -57,11 +58,16 @@ export default function YouTubePage() {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-800">YouTube Feed</h1>
-        <div className="text-sm text-gray-500">
-          Last update: {lastUpdate.toLocaleTimeString()}
-        </div>
-      </div>
+              <div className="flex items-center space-x-3">
+                <img src={youtubeLogo} alt="YouTube Logo" className="w-10 h-10 rounded-full shadow-md" />
+                <h1 className="text-3xl md:text-4xl font-extrabold text-red-600 tracking-tight flex items-center">
+                  YouTube <span className="ml-2 text-gray-800 font-semibold">Feed</span>
+                </h1>
+              </div>
+              <div className="text-sm text-gray-500">
+                Last update: {lastUpdate.toLocaleTimeString()}
+              </div>
+            </div>
 
       {error && (
         <div className="bg-red-50 border border-red-200 p-4 rounded-lg mb-6">
